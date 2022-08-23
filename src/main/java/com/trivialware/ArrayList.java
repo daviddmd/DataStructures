@@ -135,9 +135,13 @@ public class ArrayList<T> implements UnorderedListADT<T> {
     }
 
     @Override
-    public T remove(T e) {
+    public boolean remove(T e) {
         int itemIndex = getIndex(e);
-        return itemIndex == -1 ? null : remove(itemIndex);
+        if (itemIndex == -1) {
+            return false;
+        }
+        remove(itemIndex);
+        return true;
     }
 
     @Override

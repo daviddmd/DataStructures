@@ -131,9 +131,13 @@ public class DoublyLinkedList<T> implements UnorderedListADT<T> {
     }
 
     @Override
-    public T remove(T e) {
+    public boolean remove(T e) {
         DoublyLinkedNode<T> node = getNode(e);
-        return node == null ? null : removeNode(node);
+        if (node == null) {
+            return false;
+        }
+        removeNode(node);
+        return true;
     }
 
     private T removeNode(DoublyLinkedNode<T> node) {

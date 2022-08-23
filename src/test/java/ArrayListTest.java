@@ -204,8 +204,9 @@ class ArrayListTest {
         assertFalse(list.contains(15));
         list.addLast(15);
         assertTrue(list.contains(15));
-        list.remove(Integer.valueOf(15));
+        assertTrue(list.remove(Integer.valueOf(15)));
         assertFalse(list.contains(15));
+        assertFalse(list.remove(Integer.valueOf(16)));
     }
 
     @Test

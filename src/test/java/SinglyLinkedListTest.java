@@ -26,7 +26,7 @@ class SinglyLinkedListTest {
         list.addFirst(1);
         list.addFirst(2);
         assertEquals(2, list.size());
-        list.remove(0);
+        assertEquals(2,list.remove(0));
         assertEquals(1, list.size());
         list.addFirst(2);
         assertEquals(2, list.size());
@@ -39,7 +39,7 @@ class SinglyLinkedListTest {
         assertTrue(list.isEmpty());
         list.addFirst(2);
         assertFalse(list.isEmpty());
-        list.remove(0);
+        assertEquals(2,list.remove(0));
         assertTrue(list.isEmpty());
         list.addFirst(2);
         list.addFirst(2);
@@ -210,23 +210,24 @@ class SinglyLinkedListTest {
     void removeElement() {
         addNumbersToList(list);
         assertTrue(list.contains(2));
-        list.remove(Integer.valueOf(2));
+        assertTrue(list.remove(Integer.valueOf(2)));
         assertFalse(list.contains(2));
         assertFalse(list.contains(15));
         list.addLast(15);
         assertTrue(list.contains(15));
-        list.remove(Integer.valueOf(15));
+        assertTrue(list.remove(Integer.valueOf(15)));
         assertFalse(list.contains(15));
+        assertFalse(list.remove(Integer.valueOf(16)));
     }
 
     @Test
     void removeIndex() {
         addNumbersToList(list);
         assertEquals(1, list.getFirst());
-        list.remove(0);
+        assertEquals(1,list.remove(0));
         assertEquals(2, list.getFirst());
         assertEquals(9, list.getLast());
-        list.remove(0);
+        assertEquals(2,list.remove(0));
         list.remove(list.size() - 1);
         assertEquals(3, list.getFirst());
         assertEquals(8, list.getLast());

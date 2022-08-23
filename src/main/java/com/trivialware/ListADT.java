@@ -20,7 +20,7 @@ public interface ListADT<T> extends Iterable<T> {
     //primeiro
     T remove(int index);
 
-    T remove(T e);
+    boolean remove(T e);
 
     T removeFirst();
 

@@ -73,18 +73,20 @@ public class OrderedListBinaryTree<T extends Comparable<T>> implements OrderedLi
     public T remove(int index) {
         if (!isEmpty()) {
             T element = get(index);
-            return remove(element);
+            if (remove(element)) {
+                return element;
+            }
         }
         return null;
     }
 
     @Override
-    public T remove(T e) {
+    public boolean remove(T e) {
         if (!isEmpty() && tree.contains(e)) {
             tree.remove(e);
-            return e;
+            return true;
         }
-        return null;
+        return false;
     }
 
     @Override

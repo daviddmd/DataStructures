@@ -27,7 +27,7 @@ class DoublyLinkedListTest {
         list.addFirst(1);
         list.addFirst(2);
         assertEquals(2, list.size());
-        list.remove(0);
+        assertEquals(2,list.remove(0));
         assertEquals(1, list.size());
         list.addFirst(2);
         assertEquals(2, list.size());
@@ -40,7 +40,7 @@ class DoublyLinkedListTest {
         assertTrue(list.isEmpty());
         list.addFirst(2);
         assertFalse(list.isEmpty());
-        list.remove(0);
+        assertEquals(2,list.remove(0));
         assertTrue(list.isEmpty());
         list.addFirst(2);
         list.addFirst(2);
@@ -162,25 +162,25 @@ class DoublyLinkedListTest {
     @Test
     void addAtPosition() {
         addNumbersToList(list);
-        assertEquals(9,list.size());
+        assertEquals(9, list.size());
         assertEquals(1, list.getFirst());
         assertEquals(2, list.get(1));
         assertEquals(3, list.get(2));
         list.add(1, 55);
-        assertEquals(10,list.size());
+        assertEquals(10, list.size());
         assertEquals(55, list.get(1));
         assertEquals(1, list.get(0));
         assertEquals(2, list.get(2));
         assertEquals(3, list.get(3));
         assertThrows(IndexOutOfBoundsException.class, () -> list.add(-2, 56));
-        assertEquals(10,list.size());
+        assertEquals(10, list.size());
         list.add(0, 22);
-        assertEquals(11,list.size());
+        assertEquals(11, list.size());
         assertEquals(22, list.get(0));
         assertEquals(22, list.getFirst());
         assertEquals(9, list.getLast());
         list.add(list.size() - 1, 99);
-        assertEquals(12,list.size());
+        assertEquals(12, list.size());
         assertEquals(9, list.getLast());
         assertEquals(99, list.get(list.size() - 2));
         assertTrue(list.clear());
@@ -201,12 +201,12 @@ class DoublyLinkedListTest {
     void removeElement() {
         addNumbersToList(list);
         assertTrue(list.contains(2));
-        list.remove(Integer.valueOf(2));
+        assertTrue(list.remove(Integer.valueOf(2)));
         assertFalse(list.contains(2));
         assertFalse(list.contains(15));
         list.addLast(15);
         assertTrue(list.contains(15));
-        list.remove(Integer.valueOf(15));
+        assertTrue(list.remove(Integer.valueOf(15)));
         assertFalse(list.contains(15));
     }
 
@@ -214,10 +214,10 @@ class DoublyLinkedListTest {
     void removeIndex() {
         addNumbersToList(list);
         assertEquals(1, list.getFirst());
-        list.remove(0);
+        assertEquals(1,list.remove(0));
         assertEquals(2, list.getFirst());
         assertEquals(9, list.getLast());
-        list.remove(0);
+        assertEquals(2,list.remove(0));
         list.remove(list.size() - 1);
         assertEquals(3, list.getFirst());
         assertEquals(8, list.getLast());
@@ -323,16 +323,17 @@ class DoublyLinkedListTest {
             assertTrue(i % 2 != 0);
         }
     }
+
     @Test
-    void numberSame(){
+    void numberSame() {
         addNumbersToList(list);
-        for (int i = 1; i < 10; i++){
-            for (int f = 0; f < i; f++){
+        for (int i = 1; i < 10; i++) {
+            for (int f = 0; f < i; f++) {
                 list.addLast(i);
             }
         }
-        for (int i = 1; i < 10; i++){
-            assertEquals(i+1,list.numberOfSameElements(i));
+        for (int i = 1; i < 10; i++) {
+            assertEquals(i + 1, list.numberOfSameElements(i));
         }
     }
 }
