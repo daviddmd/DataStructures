@@ -127,7 +127,7 @@ public class ArrayList<T> implements UnorderedListADT<T> {
     public T remove(int index) {
         ensureValidPosition(index);
         T data = items[index];
-        for (int i = index; i < size(); i++) {
+        for (int i = index; i < size()-1; i++) {
             items[i] = items[i + 1];
         }
         this.numberItems -= 1;

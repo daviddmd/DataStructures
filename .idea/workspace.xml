@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e703c46-c2cd-486c-8f69-381489b94b5a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +146,10 @@
       <updated>1661257545294</updated>
       <workItem from="1661257546889" duration="357000" />
       <workItem from="1661257932962" duration="882000" />
+      <workItem from="1661275436623" duration="764000" />
+      <workItem from="1661281162186" duration="329000" />
+      <workItem from="1661282274792" duration="14000" />
+      <workItem from="1661345497941" duration="2763000" />
     </task>
     <servers />
   </component>
