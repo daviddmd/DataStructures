@@ -1,7 +1,7 @@
 package com.trivialware;
 
 public class AdjacencyListVertex<T> {
-    private T label;
+    private final T label;
     private UnorderedListADT<Edge<T>> edges;
     //Estas três variáveis serão úteis em algoritmos de caminhos
     private boolean visited;
@@ -10,12 +10,15 @@ public class AdjacencyListVertex<T> {
 
     private AdjacencyListVertex<T> predecessor;
 
+    private int indegree;
+
     public AdjacencyListVertex(T label) {
         this.label = label;
         this.edges = new DoublyLinkedList<>();
         this.visited = false;
         this.pathCost = 0;
         this.predecessor = null;
+        this.indegree = 0;
     }
 
     public boolean isVisited() {
@@ -62,6 +65,15 @@ public class AdjacencyListVertex<T> {
         }
         return null;
     }
+
+    public int getIndegree() {
+        return indegree;
+    }
+
+    public void setIndegree(int indegree) {
+        this.indegree = indegree;
+    }
+
 
     public static class Edge<T> implements Comparable<Edge<T>> {
 

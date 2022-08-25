@@ -354,6 +354,42 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
         return list;
     }
 
+    @Override
+    public QueueADT<T> getTopologicalOrder() {
+        QueueADT<T> order = new LinkedQueue<>();
+        QueueADT<T> tmp = new LinkedQueue<>();
+        int[] indegrees = new int[getNumberOfVertices()];
+        for (int i = 0; i < numberOfVertices; i++) {
+            indegrees[i] = getInNeighbours(vertices[i]).size();
+            if (indegrees[i] == 0) {
+                tmp.enqueue(vertices[i]);
+            }
+        }
+        T vertex;
+        int neighbourIndex;
+        while (!tmp.isEmpty()) {
+            vertex = tmp.dequeue();
+            order.enqueue(vertex);
+            for (T neighbour : getOutNeighbours(vertex)) {
+                neighbourIndex = getPositionOfVertex(neighbour);
+                indegrees[neighbourIndex] -= 1;
+                if (indegrees[neighbourIndex] == 0) {
+                    tmp.enqueue(vertices[neighbourIndex]);
+                }
+            }
+        }
+        if (order.size() != getNumberOfVertices()) {
+            return new LinkedQueue<>();
+        }
+        return order;
+    }
+
+    @Override
+    public Iterator<T> getTopologicalOrderIterator() {
+        QueueADT<T> queue = getTopologicalOrder();
+        return queue.iterator();
+    }
+
 
     public void setNumberOfVertices(int numberOfVertices) {
         this.numberOfVertices = numberOfVertices;

@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7e703c46-c2cd-486c-8f69-381489b94b5a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyListDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyListDirectedGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyListVertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyListVertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyMatrixDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyMatrixDirectedGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/DirectedGraphADT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/DirectedGraphADT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,7 @@
       <recent name="C:\Users\David\new\DataStructures\src\main\java\com\trivialware" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DataStructures [build]">
+  <component name="RunManager" selected="Gradle.DataStructures [test]">
     <configuration name="DataStructures [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -99,6 +101,27 @@
         <option name="taskNames">
           <list>
             <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="DataStructures [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="check" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -131,8 +154,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DataStructures [build]" />
         <item itemvalue="Gradle.DataStructures [test]" />
+        <item itemvalue="Gradle.DataStructures [check]" />
+        <item itemvalue="Gradle.DataStructures [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +173,8 @@
       <workItem from="1661275436623" duration="764000" />
       <workItem from="1661281162186" duration="329000" />
       <workItem from="1661282274792" duration="14000" />
-      <workItem from="1661345497941" duration="2763000" />
+      <workItem from="1661345497941" duration="2782000" />
+      <workItem from="1661434264071" duration="1144000" />
     </task>
     <servers />
   </component>

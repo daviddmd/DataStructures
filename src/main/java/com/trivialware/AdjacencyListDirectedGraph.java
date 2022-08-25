@@ -49,6 +49,39 @@ public class AdjacencyListDirectedGraph<T> implements DirectedGraphADT<T> {
     }
 
     @Override
+    public QueueADT<T> getTopologicalOrder() {
+        QueueADT<T> order = new LinkedQueue<>();
+        QueueADT<AdjacencyListVertex<T>> tmp = new LinkedQueue<>();
+        for (AdjacencyListVertex<T> vertex : getVertices()) {
+            vertex.setIndegree(getInNeighbours(vertex.getLabel()).size());
+            if (vertex.getIndegree() == 0) {
+                tmp.enqueue(vertex);
+            }
+        }
+        AdjacencyListVertex<T> vertex;
+        while (!tmp.isEmpty()) {
+            vertex = tmp.dequeue();
+            order.enqueue(vertex.getLabel());
+            for (AdjacencyListVertex.Edge<T> edge : vertex.getEdges()) {
+                edge.getVertex().setIndegree(edge.getVertex().getIndegree() - 1);
+                if (edge.getVertex().getIndegree() == 0) {
+                    tmp.enqueue(edge.getVertex());
+                }
+            }
+        }
+        if (order.size() != getNumberOfVertices()) {
+            return new LinkedQueue<>();
+        }
+        return order;
+    }
+
+    @Override
+    public Iterator<T> getTopologicalOrderIterator() {
+        QueueADT<T> queue = getTopologicalOrder();
+        return queue.iterator();
+    }
+
+    @Override
     public boolean addVertex(T vertex) {
         if (getVertex(vertex) == null) {
             vertices.addLast(new AdjacencyListVertex<>(vertex));
