@@ -34,7 +34,7 @@ public class AdjacencyListUndirectedNetwork<T> extends AdjacencyListDirectedNetw
 
 
     @Override
-    public NetworkADT<T> minimumSpanningTreePrim() {
+    public DirectedNetworkADT<T> minimumSpanningTreePrim() {
         if (isEmpty()) {
             return new AdjacencyMatrixUndirectedNetwork<>();
         }
@@ -44,11 +44,11 @@ public class AdjacencyListUndirectedNetwork<T> extends AdjacencyListDirectedNetw
     }
 
     @Override
-    public NetworkADT<T> minimumSpanningTreePrim(T startingVertex) {
+    public DirectedNetworkADT<T> minimumSpanningTreePrim(T startingVertex) {
         ListADT<AdjacencyListVertex<T>> vertices = getVertices();
         UnorderedListADT<T> addedVertices = new ArrayList<>(getNumberOfVertices());
         addedVertices.addLast(startingVertex);
-        NetworkADT<T> minimumSpanningTree = new AdjacencyMatrixUndirectedNetwork<>();
+        DirectedNetworkADT<T> minimumSpanningTree = new AdjacencyMatrixUndirectedNetwork<>();
         if (!isConnected() || getNumberOfVertices() == 0 || getNumberOfEdges() == 0) {
             return minimumSpanningTree;
         }

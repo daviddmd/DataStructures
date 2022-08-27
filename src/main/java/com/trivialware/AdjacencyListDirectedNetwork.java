@@ -2,7 +2,7 @@ package com.trivialware;
 
 import java.util.Iterator;
 
-public class AdjacencyListDirectedNetwork<T> extends AdjacencyListDirectedGraph<T> implements NetworkADT<T> {
+public class AdjacencyListDirectedNetwork<T> extends AdjacencyListDirectedGraph<T> implements DirectedNetworkADT<T> {
     public AdjacencyListDirectedNetwork() {
     }
 
@@ -55,7 +55,6 @@ public class AdjacencyListDirectedNetwork<T> extends AdjacencyListDirectedGraph<
 
     @Override
     public double getCheapestPath(T originVertex, T destinationVertex, StackADT<T> path) {
-        ListADT<AdjacencyListVertex<T>> vertices = getVertices();
         AdjacencyListVertex<T> origin = getVertex(originVertex);
         AdjacencyListVertex<T> destination = getVertex(destinationVertex);
         if (origin == null || destination == null || origin.equals(destination)) {

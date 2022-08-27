@@ -110,7 +110,7 @@ class AdjacencyMatrixUndirectedNetworkTest {
         addVertices(network);
         addEdges(network);
         int[] expectedBFSOrder = new int[]{1, 2, 3, 5, 4, 6};
-        NetworkADT<Integer> mst = network.minimumSpanningTreePrim(1);
+        DirectedNetworkADT<Integer> mst = network.minimumSpanningTreePrim(1);
         QueueADT<Integer> bfs = mst.getBreadthFirstTraversal(1);
         int currentIndex = 0;
         while (!bfs.isEmpty()) {

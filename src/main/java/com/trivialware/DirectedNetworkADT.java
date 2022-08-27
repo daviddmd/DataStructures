@@ -2,7 +2,7 @@ package com.trivialware;
 
 import java.util.Iterator;
 
-public interface NetworkADT<T> extends GraphADT<T> {
+public interface DirectedNetworkADT<T> extends GraphADT<T> {
     boolean addEdge(T originVertex, T destinationVertex, double weight);
 
     void setEdgeWeight(T originVertex, T destinationVertex, double weight);

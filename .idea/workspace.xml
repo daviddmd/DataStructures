@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e703c46-c2cd-486c-8f69-381489b94b5a" name="Changes" comment="" />
+    <list default="true" id="7e703c46-c2cd-486c-8f69-381489b94b5a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyListDirectedNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyListDirectedNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyListUndirectedNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyListUndirectedNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyMatrixDirectedNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyMatrixDirectedNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyMatrixUndirectedNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyMatrixUndirectedNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/LinkedQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/LinkedQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/LinkedStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/LinkedStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/NetworkADT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/DirectedNetworkADT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/StackQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/StackQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/UndirectedNetworkADT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/UndirectedNetworkADT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AdjacencyListDirectedNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AdjacencyListDirectedNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AdjacencyListUndirectedNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AdjacencyListUndirectedNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AdjacencyMatrixDirectedNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AdjacencyMatrixDirectedNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AdjacencyMatrixUndirectedNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AdjacencyMatrixUndirectedNetworkTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,8 +165,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.DataStructures [test]" />
-        <item itemvalue="Gradle.DataStructures [check]" />
         <item itemvalue="Gradle.DataStructures [build]" />
+        <item itemvalue="Gradle.DataStructures [check]" />
       </list>
     </recent_temporary>
   </component>
@@ -169,6 +185,8 @@
       <workItem from="1661282274792" duration="14000" />
       <workItem from="1661345497941" duration="2782000" />
       <workItem from="1661434264071" duration="1333000" />
+      <workItem from="1661529969578" duration="672000" />
+      <workItem from="1661620430843" duration="1906000" />
     </task>
     <servers />
   </component>

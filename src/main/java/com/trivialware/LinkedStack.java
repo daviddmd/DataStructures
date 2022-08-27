@@ -3,7 +3,7 @@ package com.trivialware;
 import java.util.Iterator;
 
 public class LinkedStack<T> implements StackADT<T> {
-    UnorderedListADT<T> list;
+    private final UnorderedListADT<T> list;
 
     public LinkedStack() {
         this.list = new DoublyLinkedList<>();

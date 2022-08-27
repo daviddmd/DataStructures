@@ -5,20 +5,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AdjacencyMatrixDirectedNetworkTest {
-    NetworkADT<Integer> network;
+    DirectedNetworkADT<Integer> network;
 
     @BeforeEach
     void setUp() {
         network = new AdjacencyMatrixDirectedNetwork<>();
     }
 
-    void addVertices(NetworkADT<Integer> network) {
+    void addVertices(DirectedNetworkADT<Integer> network) {
         for (int i = 1; i <= 6; i++) {
             network.addVertex(i);
         }
     }
 
-    void addEdges(NetworkADT<Integer> network) {
+    void addEdges(DirectedNetworkADT<Integer> network) {
         network.addEdge(1, 2, 2);
         network.addEdge(1, 3, 4);
         network.addEdge(2, 3, 1);

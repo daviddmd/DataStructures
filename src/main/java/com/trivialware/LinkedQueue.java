@@ -3,7 +3,7 @@ package com.trivialware;
 import java.util.Iterator;
 
 public class LinkedQueue<T> implements QueueADT<T> {
-    UnorderedListADT<T> list;
+    private final UnorderedListADT<T> list;
 
     public LinkedQueue() {
         /*

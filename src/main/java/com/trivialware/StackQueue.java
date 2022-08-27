@@ -3,8 +3,8 @@ package com.trivialware;
 import java.util.Iterator;
 
 public class StackQueue<T> implements QueueADT<T> {
-    private StackADT<T> inbox;
-    private StackADT<T> outbox;
+    private final StackADT<T> inbox;
+    private final StackADT<T> outbox;
 
     public StackQueue() {
         this.inbox = new LinkedStack<>();

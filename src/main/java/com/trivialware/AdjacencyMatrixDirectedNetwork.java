@@ -2,7 +2,7 @@ package com.trivialware;
 
 import java.util.Iterator;
 
-public class AdjacencyMatrixDirectedNetwork<T> extends AdjacencyMatrixDirectedGraph<T> implements NetworkADT<T> {
+public class AdjacencyMatrixDirectedNetwork<T> extends AdjacencyMatrixDirectedGraph<T> implements DirectedNetworkADT<T> {
     public AdjacencyMatrixDirectedNetwork() {
     }
 

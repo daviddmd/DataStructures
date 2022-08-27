@@ -38,18 +38,18 @@ public class AdjacencyMatrixUndirectedNetwork<T> extends AdjacencyMatrixDirected
     }
 
     @Override
-    public NetworkADT<T> minimumSpanningTreePrim() {
+    public DirectedNetworkADT<T> minimumSpanningTreePrim() {
         Random r = new Random();
         T randomVertex = getVertices()[r.nextInt(0, getNumberOfVertices())];
         return minimumSpanningTreePrim(randomVertex);
     }
 
     @Override
-    public NetworkADT<T> minimumSpanningTreePrim(T startingVertex) {
+    public DirectedNetworkADT<T> minimumSpanningTreePrim(T startingVertex) {
 
         UnorderedListADT<T> addedVertices = new ArrayList<>(getNumberOfVertices());
         addedVertices.addLast(startingVertex);
-        NetworkADT<T> minimumSpanningTree = new AdjacencyMatrixUndirectedNetwork<>();
+        DirectedNetworkADT<T> minimumSpanningTree = new AdjacencyMatrixUndirectedNetwork<>();
         //MST apenas se aplica a grafos conexos
         if (!isConnected() || getNumberOfVertices() == 0 || getNumberOfEdges() == 0) {
             return minimumSpanningTree;
