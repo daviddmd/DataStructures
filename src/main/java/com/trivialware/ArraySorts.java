@@ -34,6 +34,25 @@ public class ArraySorts {
         }
     }
 
+    public static <T extends Comparable<T>> void selectionSortRecursive(T[] arr) {
+        selectionSortRec(arr, 0, arr.length);
+    }
+
+    private static <T extends Comparable<T>> void selectionSortRec(T[] arr, int start, int end) {
+        if (start < end) {
+            int currentMinimumIndex = start;
+            for (int i = start; i < end; i++) {
+                if (arr[i].compareTo(arr[currentMinimumIndex]) < 0) {
+                    currentMinimumIndex = i;
+                }
+            }
+            if (start != currentMinimumIndex) {
+                swap(arr, start, currentMinimumIndex);
+            }
+            selectionSortRec(arr, start + 1, end);
+        }
+    }
+
     /*
     Insertion sort funciona através de puxar os menores elementos para o início.
     O i começa em 1, assume-se que o primeiro elemento é o menor da lista. Posteriormente, verifica-se se o elemento
@@ -181,7 +200,7 @@ public class ArraySorts {
         for (int i = 0; i < numberElements; i++) {
             //arr[rightEnd] = tmp[rightEnd];
             //rightEnd -= 1;
-            arr[originalStart+i]=tmp[originalStart+i];
+            arr[originalStart + i] = tmp[originalStart + i];
         }
     }
 }
