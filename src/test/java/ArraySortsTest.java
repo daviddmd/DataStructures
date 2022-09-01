@@ -95,4 +95,16 @@ class ArraySortsTest {
             assertEquals(expected1[i],arr1[i]);
         }
     }
+
+    @Test
+    void heapSort(){
+        ArraySorts.heapSort(arr);
+        ArraySorts.heapSort(arr1);
+        for (int i = 0; i < arr.length; i++){
+            assertEquals(expected[i],arr[i]);
+        }
+        for (int i = 0; i < arr1.length; i++){
+            assertEquals(expected1[i],arr1[i]);
+        }
+    }
 }

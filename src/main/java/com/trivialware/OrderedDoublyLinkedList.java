@@ -19,6 +19,5 @@ public class OrderedDoublyLinkedList<T extends Comparable<T>> extends DoublyLink
             current.setPrevious(newNode);
         }
         setSize(getSize() + 1);
-
     }
 }
