@@ -272,6 +272,11 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
             this.next = null;
         }
 
+        public SinglyLinkedNode(T data, SinglyLinkedNode<T> next) {
+            this.data = data;
+            this.next = next;
+        }
+
         public T getData() {
             return data;
         }
