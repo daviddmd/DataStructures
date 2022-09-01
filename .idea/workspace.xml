@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e703c46-c2cd-486c-8f69-381489b94b5a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/OrderedSinglyLinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/trivialware/OrderedSinglyLinkedListTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/SinglyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/SinglyLinkedList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +221,7 @@
       <workItem from="1661961147948" duration="43000" />
       <workItem from="1661972397492" duration="108000" />
       <workItem from="1661973779109" duration="3676000" />
-      <workItem from="1662029807590" duration="6098000" />
+      <workItem from="1662029807590" duration="7199000" />
     </task>
     <servers />
   </component>
