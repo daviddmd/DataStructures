@@ -1,15 +1,17 @@
+package com.trivialware;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.trivialware.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AdjacencyMatrixUndirectedNetworkTest {
+class AdjacencyListUndirectedNetworkTest {
     UndirectedNetworkADT<Integer> network;
 
     @BeforeEach
     void setUp() {
-        network = new AdjacencyMatrixUndirectedNetwork<>();
+        network = new AdjacencyListUndirectedNetwork<>();
     }
 
     void addVertices(UndirectedNetworkADT<Integer> network) {
@@ -159,12 +161,14 @@ class AdjacencyMatrixUndirectedNetworkTest {
         }
 
         currentIndex = 0;
-        expectedOrder = new int[]{4, 3, 6};
+        expectedOrder = new int[]{4,3,6};
         order = new LinkedStack<>();
         assertEquals(13, network.getCheapestPath(4, 6, order));
         while (!order.empty()) {
             assertEquals(expectedOrder[currentIndex++], order.pop());
         }
+
+
     }
 
     @Test

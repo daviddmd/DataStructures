@@ -1,3 +1,5 @@
+package com.trivialware;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.trivialware.*;
@@ -6,26 +8,27 @@ import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AVLTreeTest {
+class LinkedBinarySearchTreeTest {
     BinarySearchTreeADT<Integer> tree;
 
     void insertElements(BinarySearchTreeADT<Integer> tree) {
-        int[] elements = new int[]{20, 7, 30, 5, 25, 31, 4, 6, 24, 26, 32, 27};
-        for (int i : elements) {
-            tree.insert(i);
-        }
-    }
-
-    void insertElements1(BinarySearchTreeADT<Integer> tree) {
-        int[] elements = new int[]{50, 20, 60, 10, 8, 15, 32, 46, 11, 48};
-        for (int i : elements) {
-            tree.insert(i);
-        }
+        tree.insert(20);
+        tree.insert(7);
+        tree.insert(30);
+        tree.insert(5);
+        tree.insert(25);
+        tree.insert(31);
+        tree.insert(4);
+        tree.insert(6);
+        tree.insert(24);
+        tree.insert(26);
+        tree.insert(32);
+        tree.insert(27);
     }
 
     @BeforeEach
     void setUp() {
-        tree = new AVLTree<>();
+        tree = new LinkedBinarySearchTree<>();
     }
 
 
@@ -70,44 +73,21 @@ class AVLTreeTest {
 
     @Test
     void iteratorPreOrder() {
-        int[] expectedOrder;
-        int currentIndex;
-        Iterator<Integer> iterator;
         insertElements(tree);
-        expectedOrder = new int[]{20, 5, 4, 7, 6, 30, 25, 24, 26, 27, 31, 32};
-        currentIndex = 0;
-        iterator = tree.iteratorPreOrder();
+        int[] expectedOrder = new int[]{20, 7, 5, 4, 6, 30, 25, 24, 26, 27, 31, 32};
+        int currentIndex = 0;
+        Iterator<Integer> iterator = tree.iteratorPreOrder();
         while (iterator.hasNext()) {
             assertEquals(expectedOrder[currentIndex++], iterator.next());
         }
-        tree.makeEmpty();
-        insertElements1(tree);
-        expectedOrder = new int[]{20,10,8,15,11,50,46,32,48,60};
-        currentIndex = 0;
-        iterator = tree.iteratorPreOrder();
-        while (iterator.hasNext()) {
-            assertEquals(expectedOrder[currentIndex++], iterator.next());
-        }
-
     }
 
     @Test
     void iteratorInOrder() {
-        int[] expectedOrder;
-        int currentIndex;
-        Iterator<Integer> iterator;
         insertElements(tree);
-        expectedOrder = new int[]{4, 5, 6, 7, 20, 24, 25, 26, 27, 30, 31, 32};
-        currentIndex = 0;
-        iterator = tree.iteratorInOrder();
-        while (iterator.hasNext()) {
-            assertEquals(expectedOrder[currentIndex++], iterator.next());
-        }
-        tree.makeEmpty();
-        insertElements1(tree);
-        expectedOrder = new int[]{8,10,11,15,20,32,46,48,50,60};
-        currentIndex = 0;
-        iterator = tree.iteratorInOrder();
+        int[] expectedOrder = new int[]{4, 5, 6, 7, 20, 24, 25, 26, 27, 30, 31, 32};
+        int currentIndex = 0;
+        Iterator<Integer> iterator = tree.iteratorInOrder();
         while (iterator.hasNext()) {
             assertEquals(expectedOrder[currentIndex++], iterator.next());
         }
@@ -115,21 +95,10 @@ class AVLTreeTest {
 
     @Test
     void iteratorPostOrder() {
-        int[] expectedOrder;
-        int currentIndex;
-        Iterator<Integer> iterator;
         insertElements(tree);
-        expectedOrder = new int[]{4, 6, 7, 5, 24, 27, 26, 25, 32, 31, 30, 20};
-        currentIndex = 0;
-        iterator = tree.iteratorPostOrder();
-        while (iterator.hasNext()) {
-            assertEquals(expectedOrder[currentIndex++], iterator.next());
-        }
-        tree.makeEmpty();
-        insertElements1(tree);
-        expectedOrder = new int[]{8,11,15,10,32,48,46,60,50,20};
-        currentIndex = 0;
-        iterator = tree.iteratorPostOrder();
+        int[] expectedOrder = new int[]{4, 6, 5, 7, 24, 27, 26, 25, 32, 31, 30, 20};
+        int currentIndex = 0;
+        Iterator<Integer> iterator = tree.iteratorPostOrder();
         while (iterator.hasNext()) {
             assertEquals(expectedOrder[currentIndex++], iterator.next());
         }
@@ -137,26 +106,15 @@ class AVLTreeTest {
 
     @Test
     void iteratorLevelOrder() {
-        int[] expectedOrder;
-        int currentIndex;
-        Iterator<Integer> iterator;
         insertElements(tree);
-        expectedOrder = new int[]{20, 5, 30, 4, 7, 25, 31, 6, 24, 26, 32, 27};
-        currentIndex = 0;
-        iterator = tree.iteratorLevelOrder();
+        int[] expectedOrder = new int[]{20, 7, 30, 5, 25, 31, 4, 6, 24, 26, 32, 27};
+        int currentIndex = 0;
+        Iterator<Integer> iterator = tree.iteratorLevelOrder();
         while (iterator.hasNext()) {
             assertEquals(expectedOrder[currentIndex++], iterator.next());
         }
         tree.remove(30);
-        expectedOrder = new int[]{20, 5, 26, 4, 7, 25, 31, 6, 24, 27, 32};
-        currentIndex = 0;
-        iterator = tree.iteratorLevelOrder();
-        while (iterator.hasNext()) {
-            assertEquals(expectedOrder[currentIndex++], iterator.next());
-        }
-        tree.makeEmpty();
-        insertElements1(tree);
-        expectedOrder = new int[]{20,10,50,8,15,46,60,11,32,48};
+        expectedOrder = new int[]{20, 7, 31, 5, 25, 32, 4, 6, 24, 26, 27};
         currentIndex = 0;
         iterator = tree.iteratorLevelOrder();
         while (iterator.hasNext()) {
@@ -250,16 +208,16 @@ class AVLTreeTest {
     }
 
     @Test
-    void size() {
+    void size(){
         insertElements(tree);
-        assertEquals(12, tree.size());
+        assertEquals(12,tree.size());
         tree.remove(27);
-        assertEquals(11, tree.size());
+        assertEquals(11,tree.size());
         tree.remove(25);
-        assertEquals(10, tree.size());
-        assertEquals(20, tree.getRootElement());
-        tree.remove(20);
-        assertEquals(9, tree.size());
-        assertEquals(24, tree.getRootElement());
+        assertEquals(10,tree.size());
+        assertEquals(20,tree.getRootElement());
+        tree.remove(20);;
+        assertEquals(9,tree.size());
+        assertEquals(24,tree.getRootElement());
     }
 }

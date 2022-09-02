@@ -1,3 +1,5 @@
+package com.trivialware;
+
 import com.trivialware.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

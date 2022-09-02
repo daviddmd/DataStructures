@@ -1,23 +1,26 @@
+package com.trivialware;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.trivialware.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AdjacencyListDirectedGraphTest {
-    DirectedGraphADT<Integer> graph;
+class AdjacencyMatrixUndirectedGraphTest {
+    UndirectedGraphADT<Integer> graph;
 
     @BeforeEach
     void setUp() {
-        graph = new AdjacencyListDirectedGraph<>();
+        graph = new AdjacencyMatrixUndirectedGraph<>(5);
     }
-    void addVertices(DirectedGraphADT<Integer> graph) {
+
+    void addVertices(UndirectedGraphADT<Integer> graph) {
         for (int i = 1; i <= 5; i++) {
             graph.addVertex(i);
         }
     }
 
-    void addEdges(DirectedGraphADT<Integer> graph) {
+    void addEdges(UndirectedGraphADT<Integer> graph) {
         graph.addEdge(1, 2);
         graph.addEdge(2, 3);
         graph.addEdge(3, 4);
@@ -26,6 +29,8 @@ class AdjacencyListDirectedGraphTest {
         graph.addEdge(2, 4);
         graph.addEdge(2, 5);
     }
+
+
     @Test
     void addVertex() {
         assertTrue(graph.isEmpty());
@@ -53,43 +58,43 @@ class AdjacencyListDirectedGraphTest {
         assertFalse(graph.isEmpty());
         assertEquals(5, graph.getNumberOfVertices());
     }
+
     @Test
     void addEdge() {
         addVertices(graph);
         assertFalse(graph.isEmpty());
         assertTrue(graph.addEdge(1, 2));
-        assertTrue(graph.addEdge(2, 1));
         assertFalse(graph.addEdge(2, 1));
+        assertEquals(1, graph.getNumberOfEdges());
+        assertFalse(graph.addEdge(1, 2));
         assertFalse(graph.addEdge(2, 2));
         assertFalse(graph.addEdge(0, 2));
         assertTrue(graph.addEdge(2, 3));
-        assertFalse(graph.addEdge(2, 3));
+        assertFalse(graph.addEdge(3, 2));
+        assertTrue(graph.addEdge(4, 1));
+        assertEquals(3, graph.getNumberOfEdges());
     }
 
     @Test
     void removeVertex() {
-        ListADT<Integer> inNeighbours;
-        ListADT<Integer> outNeighbours;
+        ListADT<Integer> neighbours;
         addVertices(graph);
         addEdges(graph);
+        assertEquals(7, graph.getNumberOfEdges());
         assertFalse(graph.removeVertex(6));
         assertFalse(graph.removeVertex(0));
         assertFalse(graph.removeVertex(7));
-        inNeighbours = graph.getInNeighbours(5);
-        outNeighbours = graph.getOutNeighbours(5);
-        assertTrue(inNeighbours.contains(2));
-        assertTrue(inNeighbours.contains(4));
-        assertEquals(2, inNeighbours.size());
-        assertTrue(outNeighbours.contains(1));
-        assertEquals(1, outNeighbours.size());
-        inNeighbours = graph.getInNeighbours(2);
-        outNeighbours = graph.getOutNeighbours(2);
-        assertEquals(1, inNeighbours.size());
-        assertEquals(3, outNeighbours.size());
-        assertTrue(inNeighbours.contains(1));
-        assertTrue(outNeighbours.contains(3));
-        assertTrue(outNeighbours.contains(4));
-        assertTrue(outNeighbours.contains(5));
+        neighbours = graph.getNeighbours(5);
+        assertTrue(neighbours.contains(1));
+        assertTrue(neighbours.contains(2));
+        assertTrue(neighbours.contains(4));
+        assertEquals(3, neighbours.size());
+        neighbours = graph.getNeighbours(2);
+        assertEquals(4, neighbours.size());
+        assertTrue(neighbours.contains(1));
+        assertTrue(neighbours.contains(3));
+        assertTrue(neighbours.contains(4));
+        assertTrue(neighbours.contains(5));
         for (int i = 10; i <= 20; i++) {
             graph.addVertex(i);
         }
@@ -98,60 +103,62 @@ class AdjacencyListDirectedGraphTest {
         for (int i = 21; i <= 50; i++) {
             graph.addVertex(i);
         }
-        inNeighbours = graph.getInNeighbours(5);
-        outNeighbours = graph.getOutNeighbours(5);
-        assertEquals(2, inNeighbours.size());
-        assertTrue(inNeighbours.contains(2));
-        assertTrue(inNeighbours.contains(4));
-        assertEquals(0, outNeighbours.size());
-        inNeighbours = graph.getInNeighbours(2);
-        outNeighbours = graph.getOutNeighbours(2);
-        assertEquals(0, inNeighbours.size());
-        assertEquals(3, outNeighbours.size());
-        assertTrue(outNeighbours.contains(3));
-        assertTrue(outNeighbours.contains(4));
-        assertTrue(outNeighbours.contains(5));
-        inNeighbours = graph.getInNeighbours(3);
-        outNeighbours = graph.getOutNeighbours(3);
-        assertTrue(inNeighbours.contains(2));
-        assertTrue(outNeighbours.contains(4));
-        assertEquals(1, inNeighbours.size());
-        assertEquals(1, outNeighbours.size());
+        assertEquals(5, graph.getNumberOfEdges());
+
+        neighbours = graph.getNeighbours(5);
+        assertEquals(2, neighbours.size());
+        assertTrue(neighbours.contains(2));
+        assertTrue(neighbours.contains(4));
+
+        neighbours = graph.getNeighbours(2);
+        assertEquals(3, neighbours.size());
+        assertTrue(neighbours.contains(3));
+        assertTrue(neighbours.contains(4));
+        assertTrue(neighbours.contains(5));
+
+        neighbours = graph.getNeighbours(3);
+        assertEquals(2, neighbours.size());
+        assertTrue(neighbours.contains(2));
+        assertTrue(neighbours.contains(4));
+
         assertTrue(graph.removeVertex(2));
         assertFalse(graph.removeVertex(2));
         for (int i = 60; i <= 160; i++) {
             graph.addVertex(i);
         }
-        inNeighbours = graph.getInNeighbours(5);
-        outNeighbours = graph.getOutNeighbours(5);
-        assertEquals(1, inNeighbours.size());
-        assertTrue(inNeighbours.contains(4));
-        assertEquals(0, outNeighbours.size());
-        inNeighbours = graph.getInNeighbours(3);
-        outNeighbours = graph.getOutNeighbours(3);
-        assertEquals(0, inNeighbours.size());
-        assertEquals(1, outNeighbours.size());
-        assertTrue(outNeighbours.contains(4));
-        inNeighbours = graph.getInNeighbours(4);
-        outNeighbours = graph.getOutNeighbours(4);
-        assertEquals(1, inNeighbours.size());
-        assertEquals(1, outNeighbours.size());
-        assertTrue(inNeighbours.contains(3));
-        assertTrue(outNeighbours.contains(5));
+
+
+        neighbours = graph.getNeighbours(5);
+        assertEquals(1, neighbours.size());
+        assertTrue(neighbours.contains(4));
+
+
+        neighbours = graph.getNeighbours(3);
+        assertEquals(1, neighbours.size());
+        assertTrue(neighbours.contains(4));
+
+        neighbours = graph.getNeighbours(4);
+        assertEquals(2, neighbours.size());
+        assertTrue(neighbours.contains(3));
+        assertTrue(neighbours.contains(5));
+
+
+        assertEquals(2,graph.getNumberOfEdges());
     }
 
     @Test
     void removeEdge() {
-        ListADT<Integer> inNeighbours;
-        ListADT<Integer> outNeighbours;
+        ListADT<Integer> neighbours;
         addVertices(graph);
         assertEquals(0, graph.getNumberOfEdges());
         addEdges(graph);
         assertEquals(7, graph.getNumberOfEdges());
         graph.removeVertex(2);
         assertEquals(3, graph.getNumberOfEdges());
+        assertTrue(graph.isConnected());
         graph.removeVertex(4);
         assertEquals(1, graph.getNumberOfEdges());
+        assertFalse(graph.isConnected());
         graph.clear();
         addVertices(graph);
         addEdges(graph);
@@ -160,44 +167,27 @@ class AdjacencyListDirectedGraphTest {
         assertFalse(graph.removeEdge(2, 1));
         assertFalse(graph.removeEdge(1, 2));
         assertEquals(6, graph.getNumberOfEdges());
-        inNeighbours = graph.getInNeighbours(4);
-        outNeighbours = graph.getOutNeighbours(4);
-        assertTrue(inNeighbours.contains(2));
-        assertTrue(inNeighbours.contains(3));
-        assertEquals(2, inNeighbours.size());
-        assertEquals(1, outNeighbours.size());
-        assertTrue(outNeighbours.contains(5));
+        neighbours = graph.getNeighbours(4);
+        assertTrue(neighbours.contains(2));
+        assertTrue(neighbours.contains(3));
+        assertTrue(neighbours.contains(5));
+        assertEquals(3, neighbours.size());
         assertTrue(graph.removeEdge(2, 4));
-        inNeighbours = graph.getInNeighbours(4);
-        assertFalse(inNeighbours.contains(2));
-        assertTrue(inNeighbours.contains(3));
+        neighbours = graph.getNeighbours(4);
+        assertTrue(neighbours.contains(3));
+        assertTrue(neighbours.contains(5));
     }
 
     @Test
     void getNeighbours() {
         addVertices(graph);
         addEdges(graph);
-        ListADT<Integer> inNeighbours;
-        ListADT<Integer> outNeighbours;
-        inNeighbours = graph.getInNeighbours(4);
-        outNeighbours = graph.getOutNeighbours(4);
-        assertEquals(2, inNeighbours.size());
-        assertEquals(1, outNeighbours.size());
-        assertTrue(inNeighbours.contains(3));
-        assertTrue(inNeighbours.contains(2));
-        assertTrue(outNeighbours.contains(5));
-        assertTrue(graph.addVertex(6));
-        assertTrue(graph.addEdge(4, 6));
-        assertTrue(graph.addEdge(6, 4));
-        inNeighbours = graph.getInNeighbours(4);
-        outNeighbours = graph.getOutNeighbours(4);
-        assertEquals(3, inNeighbours.size());
-        assertEquals(2, outNeighbours.size());
-        assertTrue(inNeighbours.contains(3));
-        assertTrue(inNeighbours.contains(2));
-        assertTrue(inNeighbours.contains(6));
-        assertTrue(outNeighbours.contains(5));
-        assertTrue(outNeighbours.contains(6));
+        ListADT<Integer> neighbours;
+        neighbours = graph.getNeighbours(4);
+        assertEquals(3,neighbours.size());
+        assertTrue(neighbours.contains(3));
+        assertTrue(neighbours.contains(2));
+        assertTrue(neighbours.contains(5));
     }
 
     @Test
@@ -206,14 +196,14 @@ class AdjacencyListDirectedGraphTest {
         addVertices(graph);
         addEdges(graph);
         assertEquals(7, graph.getNumberOfEdges());
-        assertTrue(graph.addEdge(1, 5));
-        assertEquals(8, graph.getNumberOfEdges());
-        assertTrue(graph.removeEdge(2, 5));
+        assertFalse(graph.addEdge(1, 5));
         assertEquals(7, graph.getNumberOfEdges());
+        assertTrue(graph.removeEdge(2, 5));
+        assertEquals(6, graph.getNumberOfEdges());
         assertTrue(graph.removeVertex(2));
-        assertEquals(4, graph.getNumberOfEdges());
+        assertEquals(3, graph.getNumberOfEdges());
         assertTrue(graph.addEdge(1, 3));
-        assertEquals(5, graph.getNumberOfEdges());
+        assertEquals(4, graph.getNumberOfEdges());
     }
 
     @Test
@@ -246,10 +236,10 @@ class AdjacencyListDirectedGraphTest {
         addEdges(graph);
         assertTrue(graph.isConnected());
         assertTrue(graph.removeVertex(2));
+        assertTrue(graph.removeVertex(5));
         assertFalse(graph.isConnected());
-        assertTrue(graph.addEdge(1, 3));
+        assertTrue(graph.addEdge(1, 4));
         assertTrue(graph.isConnected());
-
     }
 
     @Test
@@ -264,20 +254,11 @@ class AdjacencyListDirectedGraphTest {
         assertTrue(graph.addEdge(2, 3));
         assertTrue(graph.addEdge(3, 4));
         assertTrue(graph.addEdge(4, 6));
-        assertTrue(graph.addEdge(3, 5));
         assertTrue(graph.addEdge(4, 5));
         assertTrue(graph.addEdge(5, 7));
         assertTrue(graph.addEdge(5, 1));
         traversal = graph.getBreadthFirstTraversal(1);
-        expectedOrder = new int[]{1, 2, 3, 4, 5, 6, 7};
-        currentIndex = 0;
-        while (!traversal.isEmpty()) {
-            assertEquals(expectedOrder[currentIndex++], traversal.dequeue());
-        }
-        assertTrue(graph.removeEdge(3, 5));
-        assertTrue(graph.addEdge(2, 5));
-        traversal = graph.getBreadthFirstTraversal(1);
-        expectedOrder = new int[]{1, 2, 3, 5, 4, 7, 6};
+        expectedOrder = new int[]{1,2,5,3,4,7,6};
         currentIndex = 0;
         while (!traversal.isEmpty()) {
             assertEquals(expectedOrder[currentIndex++], traversal.dequeue());
@@ -302,7 +283,7 @@ class AdjacencyListDirectedGraphTest {
         graph.addEdge(7, 4);
         graph.addEdge(6, 7);
         traversal = graph.getDepthFirstTraversal(1);
-        expectedOrder = new int[]{1, 2, 3, 7, 4, 5, 6};
+        expectedOrder = new int[]{1,2,3,5,4,6,7};
         currentIndex = 0;
         while (!traversal.isEmpty()) {
             assertEquals(expectedOrder[currentIndex++], traversal.dequeue());
@@ -335,7 +316,6 @@ class AdjacencyListDirectedGraphTest {
         while (!orderStack.empty()) {
             assertEquals(expectedOrder[currentIndex++], orderStack.pop());
         }
-        assertTrue(graph.addEdge(4, 5));
         assertTrue(graph.removeEdge(1, 6));
         orderStack = new LinkedStack<>();
         shortestPath = graph.getShortestPath(1, 5, orderStack);
