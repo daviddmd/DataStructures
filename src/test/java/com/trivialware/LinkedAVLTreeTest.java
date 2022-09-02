@@ -2,13 +2,12 @@ package com.trivialware;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import com.trivialware.*;
 
 import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AVLTreeTest {
+class LinkedAVLTreeTest {
     BinarySearchTreeADT<Integer> tree;
 
     void insertElements(BinarySearchTreeADT<Integer> tree) {
@@ -27,7 +26,7 @@ class AVLTreeTest {
 
     @BeforeEach
     void setUp() {
-        tree = new AVLTree<>();
+        tree = new LinkedAVLTree<>();
     }
 
 

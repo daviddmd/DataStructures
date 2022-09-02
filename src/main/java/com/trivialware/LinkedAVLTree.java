@@ -1,6 +1,13 @@
 package com.trivialware;
 
-public class AVLTree<T extends Comparable<T>> extends LinkedBinarySearchTree<T> implements BinarySearchTreeADT<T> {
+public class LinkedAVLTree<T extends Comparable<T>> extends LinkedBinarySearchTree<T> implements BinarySearchTreeADT<T> {
+    public LinkedAVLTree() {
+    }
+
+    public LinkedAVLTree(T data) {
+        super(data);
+    }
+
     private static final int ALLOWED_IMBALANCE = 1;
 
     private int height(BinaryNode<T> node) {

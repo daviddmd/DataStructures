@@ -13,6 +13,10 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> extends LinkedBinar
         setRoot(insert(element, getRoot()));
     }
 
+    /*
+    A implementação desta BST não permite duplicados. Caso seja necessário permitir, edita-se o
+    else if (compareResult > 0) para else if (compareResult >= 0) ou else simplesmente.
+     */
     protected BinaryNode<T> insert(T element, BinaryNode<T> node) {
         if (node == null) {
             return new BinaryNode<>(element);
@@ -48,6 +52,11 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> extends LinkedBinar
         else {
             if (node.getLeft() != null && node.getRight() != null) {
                 node.setData(findMin(node.getRight()).getData());
+                /*
+                Para eliminar o nó que foi atribuído ao nó prévio (o sucessor imediato). Nesta chamada, se o nó
+                que foi escolhido para substituição for uma folha, o mesmo vai ser atribuído como nulo, caso contrário
+                será atribuído o seu sucessor imediato, e o processo vai-se repetir até chegar a uma folha.
+                 */
                 node.setRight(remove(node.getData(), node.getRight()));
             }
             else {
