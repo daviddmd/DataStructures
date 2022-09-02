@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e703c46-c2cd-486c-8f69-381489b94b5a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +100,7 @@
       <recent name="com.trivialware" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DataStructures [test]">
+  <component name="RunManager" selected="Gradle.DataStructures [build]">
     <configuration name="DataStructures [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -189,8 +189,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DataStructures [test]" />
         <item itemvalue="Gradle.DataStructures [build]" />
+        <item itemvalue="Gradle.DataStructures [test]" />
         <item itemvalue="Gradle.OrderedSinglyLinkedListTest.add" />
         <item itemvalue="Gradle.DataStructures [check]" />
       </list>
@@ -222,7 +222,7 @@
       <workItem from="1661973779109" duration="3676000" />
       <workItem from="1662029807590" duration="8246000" />
       <workItem from="1662059869252" duration="183000" />
-      <workItem from="1662115969459" duration="4705000" />
+      <workItem from="1662115969459" duration="5181000" />
     </task>
     <servers />
   </component>

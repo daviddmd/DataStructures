@@ -6,9 +6,6 @@ public interface ListADT<T> extends Iterable<T> {
     boolean isEmpty();
 
     boolean contains(T e);
-
-    //Iterator<T> iterator();
-
     T[] toArray();
 
     T[] toArrayUntil(int pos);
