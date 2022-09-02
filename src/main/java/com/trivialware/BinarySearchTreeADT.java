@@ -1,6 +1,6 @@
 package com.trivialware;
 
-public interface BinarySearchTreeADT<T extends Comparable<T>> extends BinaryTreeADT<T> {
+public interface BinarySearchTreeADT<T extends Comparable<? super T>> extends BinaryTreeADT<T> {
 
     void insert(T element);
     void remove(T element);
