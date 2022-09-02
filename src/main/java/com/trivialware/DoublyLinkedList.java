@@ -251,7 +251,11 @@ public class DoublyLinkedList<T> implements UnorderedListADT<T> {
     }
 
     public class DoublyLinkedListIterator implements Iterator<T> {
-        private DoublyLinkedNode<T> current = head.getNext();
+        private DoublyLinkedNode<T> current;
+
+        public DoublyLinkedListIterator() {
+            this.current = head.getNext();
+        }
 
         @Override
         public boolean hasNext() {

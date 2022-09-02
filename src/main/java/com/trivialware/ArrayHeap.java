@@ -46,11 +46,10 @@ public class ArrayHeap<T extends Comparable<T>> implements HeapADT<T> {
         @SuppressWarnings({"unchecked"})
         T[] tmp = (T[]) new Comparable[newSize];
         if (!isEmpty()) {
-            for (int i = 0; i < this.heap.length; i++) {
+            for (int i = 0; i < heap.length; i++) {
                 tmp[i] = heap[i];
             }
         }
-
         this.heap = tmp;
     }
 

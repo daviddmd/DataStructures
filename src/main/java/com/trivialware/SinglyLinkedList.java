@@ -1,6 +1,7 @@
 package com.trivialware;
 
 import java.util.Iterator;
+
 //Podia ser uma classe abstract e ter duas classes herdeiras, uma que implementasse UnorderedListADT e outra OrderedListADT. Neste caso esta classe implementaria ListADT
 public class SinglyLinkedList<T> implements UnorderedListADT<T> {
     private int size;
@@ -110,6 +111,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
         }
         return false;
     }
+
     /*
     @Override
     public void add(T e) {
@@ -121,7 +123,8 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
         ensureValidPosition(index);
         if (index == 0) {
             addFirst(e);
-        } else {
+        }
+        else {
             int counter = 0;
             SinglyLinkedNode<T> ln = getHead();
             while (ln.getNext() != getTail() && counter != index) {
@@ -131,7 +134,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
             SinglyLinkedNode<T> toAdd = new SinglyLinkedNode<>(e);
             toAdd.setNext(ln.getNext());
             ln.setNext(toAdd);
-            setSize(getSize()+1);
+            setSize(getSize() + 1);
         }
     }
 
@@ -141,7 +144,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
         SinglyLinkedNode<T> toAdd = new SinglyLinkedNode<>(e);
         toAdd.setNext(first);
         getHead().setNext(toAdd);
-        setSize(getSize()+1);
+        setSize(getSize() + 1);
     }
 
     @Override
@@ -153,7 +156,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
             ln = ln.getNext();
         }
         ln.setNext(toAdd);
-        setSize(getSize()+1);
+        setSize(getSize() + 1);
     }
 
     @Override
@@ -243,7 +246,11 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
     }
 
     private class LinkedListIterator implements Iterator<T> {
-        private SinglyLinkedNode<T> current = getHead().getNext();
+        private SinglyLinkedNode<T> current;
+
+        public LinkedListIterator() {
+            this.current = getHead().getNext();
+        }
 
         @Override
         public boolean hasNext() {

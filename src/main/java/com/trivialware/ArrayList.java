@@ -198,7 +198,11 @@ public class ArrayList<T> implements UnorderedListADT<T> {
     }
 
     private class ArrayListIterator implements Iterator<T> {
-        private int currentIndex = 0;
+        private int currentIndex;
+
+        public ArrayListIterator() {
+            this.currentIndex=0;
+        }
 
         @Override
         public boolean hasNext() {
