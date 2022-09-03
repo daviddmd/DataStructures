@@ -23,7 +23,7 @@ public class ArraySorts {
         int currentMinimumIndex;
         for (int i = 0; i < arr.length - 1; i++) {
             currentMinimumIndex = i;
-            for (int f = i; f < arr.length; f++) {
+            for (int f = i + 1; f < arr.length; f++) {
                 if (arr[f].compareTo(arr[currentMinimumIndex]) < 0) {
                     currentMinimumIndex = f;
                 }
