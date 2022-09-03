@@ -41,7 +41,7 @@ public class ArraySorts {
     private static <T extends Comparable<T>> void selectionSortRec(T[] arr, int start, int end) {
         if (start < end) {
             int currentMinimumIndex = start;
-            for (int i = start; i < end; i++) {
+            for (int i = start + 1; i < end; i++) {
                 if (arr[i].compareTo(arr[currentMinimumIndex]) < 0) {
                     currentMinimumIndex = i;
                 }
