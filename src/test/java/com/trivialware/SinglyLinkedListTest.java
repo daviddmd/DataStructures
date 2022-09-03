@@ -211,6 +211,7 @@ class SinglyLinkedListTest {
     @Test
     void removeElement() {
         addNumbersToList(list);
+        assertTrue(list.remove(Integer.valueOf(9)));
         assertTrue(list.contains(2));
         assertTrue(list.remove(Integer.valueOf(2)));
         assertFalse(list.contains(2));

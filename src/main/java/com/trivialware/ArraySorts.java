@@ -59,7 +59,7 @@ public class ArraySorts {
     atual é menor que quaisquer uns que o precedem, e se for, puxam-se estes elementos para a frente, até encontrar um
     menor ou igual ao mesmo. Quando se encontra este elemento, pára-se a iteração e substitui-se o elemento na posição
     atual pelo elemento que incorreu a subsituição prévia.
-    O desempenho deste algoritmo é O(n^2).
+    O desempenho deste algoritmo é O(n^2) com melhor caso de O(N) caso o array esteja perto de organizado
      */
     public static <T extends Comparable<T>> void insertionSort(T[] arr) {
         T data;

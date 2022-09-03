@@ -162,7 +162,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
     @Override
     public boolean remove(T e) {
         SinglyLinkedNode<T> ln = head;
-        while (ln.getNext().getData() != e && ln.getNext() != tail) {
+        while (ln.getNext() != tail && !ln.getNext().getData().equals(e)) {
             ln = ln.getNext();
         }
         if (ln.getNext() == tail) {
