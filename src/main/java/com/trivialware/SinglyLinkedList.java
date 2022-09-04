@@ -1,8 +1,7 @@
 package com.trivialware;
 
 import java.util.Iterator;
-
-//Podia ser uma classe abstract e ter duas classes herdeiras, uma que implementasse UnorderedListADT e outra OrderedListADT. Neste caso esta classe implementaria ListADT
+//Apenas a DoublyLinkedList implementa a variante Ordered
 public class SinglyLinkedList<T> implements UnorderedListADT<T> {
     private int size;
     private final SinglyLinkedNode<T> head;
@@ -112,12 +111,6 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
         return false;
     }
 
-    /*
-    @Override
-    public void add(T e) {
-        addLast(e);
-    }
-     */
     @Override
     public void add(int index, T e) {
         ensureValidPosition(index);
@@ -168,7 +161,6 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
         if (ln.getNext() == tail) {
             return false;
         }
-        //T elementToRemove = ln.getNext().getData();
         SinglyLinkedNode<T> linkedNodeAfterToRemove = ln.getNext().getNext();
         ln.setNext(linkedNodeAfterToRemove);
         size -= 1;

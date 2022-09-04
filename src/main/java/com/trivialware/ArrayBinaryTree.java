@@ -101,8 +101,6 @@ public abstract class ArrayBinaryTree<T> implements BinaryTreeADT<T> {
 
     }
 
-
-
     private void iteratePreOrder(int nodeIndex, UnorderedListADT<T> list) {
         if (nodeIndex < this.tree.length) {
             if (this.tree[nodeIndex] != null) {

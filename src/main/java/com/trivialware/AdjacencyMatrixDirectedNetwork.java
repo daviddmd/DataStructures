@@ -91,8 +91,6 @@ public class AdjacencyMatrixDirectedNetwork<T> extends AdjacencyMatrixDirectedGr
             frontVertexPosition = getPositionOfVertex(frontVertex);
             if (!visited[frontVertexPosition]) {
                 visited[frontVertexPosition] = true;
-                //pathCost[frontVertexPosition] = frontEntry.getPathCost();
-                //predecessors[frontVertexPosition] = getPositionOfVertex(frontEntry.getPreviousVertex());
                 if (frontVertex.equals(destinationVertex)) {
                     done = true;
                 }
@@ -157,17 +155,7 @@ public class AdjacencyMatrixDirectedNetwork<T> extends AdjacencyMatrixDirectedGr
 
         @Override
         public int compareTo(EntryPQ<T> o) {
-            return Double.compare(getPathCost(),o.getPathCost());
-            /*
-            if (getPathCost() > o.getPathCost()) {
-                return 1;
-            }
-            else if (getPathCost() == o.getPathCost()) {
-                return 0;
-            }
-            return -1;
-
-             */
+            return Double.compare(getPathCost(), o.getPathCost());
         }
     }
 

@@ -205,7 +205,7 @@ public class ArraySorts {
     }
 
     public static <T extends Comparable<T>> void heapSort(T[] arr) {
-        HeapADT<T> heap = new ArrayHeap<>();
+        HeapADT<T> heap = new ArrayHeap<>(arr.length);
         for (int i = 0; i < arr.length; i++) {
             heap.insert(arr[i]);
         }

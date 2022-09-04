@@ -92,12 +92,6 @@ public class ArrayList<T> implements UnorderedListADT<T> {
         items[index] = e;
         return true;
     }
-    /*
-    @Override
-    public void add(T e) {
-        addLast(e);
-    }
-     */
 
     @Override
     public void add(int index, T e) {
@@ -115,7 +109,6 @@ public class ArrayList<T> implements UnorderedListADT<T> {
     @Override
     public void addFirst(T e) {
         add(0, e);
-
     }
 
     @Override
@@ -127,7 +120,7 @@ public class ArrayList<T> implements UnorderedListADT<T> {
     public T remove(int index) {
         ensureValidPosition(index);
         T data = items[index];
-        for (int i = index; i < size()-1; i++) {
+        for (int i = index; i < size() - 1; i++) {
             items[i] = items[i + 1];
         }
         this.numberItems -= 1;
@@ -201,7 +194,7 @@ public class ArrayList<T> implements UnorderedListADT<T> {
         private int currentIndex;
 
         public ArrayListIterator() {
-            this.currentIndex=0;
+            this.currentIndex = 0;
         }
 
         @Override

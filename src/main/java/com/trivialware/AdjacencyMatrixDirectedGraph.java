@@ -163,21 +163,6 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
         }
         //DFS a começar no primeiro elemento
         QueueADT<T> dfs = getDepthFirstTraversal(vertices[0]);
-        /*
-        boolean[] visited = new boolean[numberOfVertices];
-        int vertexPosition;
-        while (!dfs.isEmpty()) {
-            vertexPosition = getPositionOfVertex(dfs.dequeue());
-            visited[vertexPosition] = true;
-        }
-        //Verificar se todos os nós estão presentes no resultado do DFS. Se o grafo não estiver conectado, irão faltar alguns
-        for (int i = 0; i < numberOfVertices; i++) {
-            if (!visited[i]) {
-                return false;
-            }
-        }
-
-         */
         return dfs.size() == numberOfVertices;
     }
 
