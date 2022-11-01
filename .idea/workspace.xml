@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7e703c46-c2cd-486c-8f69-381489b94b5a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayBinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayBinaryTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyMatrixDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/AdjacencyMatrixDirectedGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/ArrayHeap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/ArraySorts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/ArraySorts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/SinglyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/SinglyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trivialware/DoublyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trivialware/DoublyLinkedList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +148,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="DataStructures [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="DataStructures [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -195,8 +216,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.DataStructures [test]" />
-        <item itemvalue="Gradle.DataStructures [check]" />
+        <item itemvalue="Gradle.DataStructures [clean]" />
         <item itemvalue="Gradle.DataStructures [build]" />
+        <item itemvalue="Gradle.DataStructures [check]" />
         <item itemvalue="Gradle.OrderedSinglyLinkedListTest.add" />
       </list>
     </recent_temporary>
@@ -230,7 +252,15 @@
       <workItem from="1662115969459" duration="13326000" />
       <workItem from="1662204617343" duration="8491000" />
       <workItem from="1662287276233" duration="7000" />
-      <workItem from="1662299658408" duration="2507000" />
+      <workItem from="1662299658408" duration="3704000" />
+      <workItem from="1662316382426" duration="4972000" />
+      <workItem from="1662376356613" duration="2762000" />
+      <workItem from="1662390154150" duration="5394000" />
+      <workItem from="1662413542274" duration="612000" />
+      <workItem from="1662464038644" duration="2836000" />
+      <workItem from="1663942246583" duration="14000" />
+      <workItem from="1667333406058" duration="4000" />
+      <workItem from="1667342712690" duration="346000" />
     </task>
     <servers />
   </component>

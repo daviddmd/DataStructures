@@ -222,7 +222,7 @@ public class ArrayHeap<T extends Comparable<T>> implements HeapADT<T> {
             }
             hole = child;
         }
-        //Estamos no elemento da árvore que não tem filhos, cujo pai é finalmente inferior ao mesmo
+        //Estamos no elemento da árvore que não tem filhos menores ao mesmo, cujo pai é finalmente inferior ao mesmo
         heap[hole] = tmp;
     }
 

@@ -206,10 +206,7 @@ public class DoublyLinkedList<T> implements UnorderedListADT<T> {
         while (ln.getNext() != getTail() && !ln.getNext().getData().equals(e)) {
             ln = ln.getNext();
         }
-        if (ln.getNext() == getTail()) {
-            return null;
-        }
-        return ln.getNext();
+        return ln.getNext() != getTail() ? ln.getNext() : null;
     }
 
     @Override
@@ -232,25 +229,7 @@ public class DoublyLinkedList<T> implements UnorderedListADT<T> {
         return new DoublyLinkedListIterator();
     }
 
-    /*
-    public <T extends Comparable<Number>> DoublyLinkedList<T> listWithEvenNumbers(){
-        DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
-        Iterator<Integer> iter = iterator();
-    }
-     */
-    public int numberOfSameElements(T element) {
-        Iterator<T> iter = iterator();
-        int numberSame = 0;
-        while (iter.hasNext()) {
-            T next = iter.next();
-            if (element.equals(next)) {
-                numberSame += 1;
-            }
-        }
-        return numberSame;
-    }
-
-    public class DoublyLinkedListIterator implements Iterator<T> {
+    private class DoublyLinkedListIterator implements Iterator<T> {
         private DoublyLinkedNode<T> current;
 
         public DoublyLinkedListIterator() {

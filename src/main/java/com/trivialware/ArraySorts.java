@@ -28,9 +28,7 @@ public class ArraySorts {
                     currentMinimumIndex = f;
                 }
             }
-            if (i != currentMinimumIndex) {
-                swap(arr, i, currentMinimumIndex);
-            }
+            swap(arr, i, currentMinimumIndex);
         }
     }
 
@@ -46,9 +44,7 @@ public class ArraySorts {
                     currentMinimumIndex = i;
                 }
             }
-            if (start != currentMinimumIndex) {
-                swap(arr, start, currentMinimumIndex);
-            }
+            swap(arr, start, currentMinimumIndex);
             selectionSortRec(arr, start + 1, end);
         }
     }

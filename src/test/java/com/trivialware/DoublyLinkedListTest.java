@@ -325,17 +325,4 @@ class DoublyLinkedListTest {
             assertTrue(i % 2 != 0);
         }
     }
-
-    @Test
-    void numberSame() {
-        addNumbersToList(list);
-        for (int i = 1; i < 10; i++) {
-            for (int f = 0; f < i; f++) {
-                list.addLast(i);
-            }
-        }
-        for (int i = 1; i < 10; i++) {
-            assertEquals(i + 1, list.numberOfSameElements(i));
-        }
-    }
 }

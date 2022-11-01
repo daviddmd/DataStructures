@@ -83,9 +83,11 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
     @Override
     public boolean removeVertex(T vertex) {
         int vertexPosition = getPositionOfVertex(vertex);
+
         if (vertexPosition == -1) {
             return false;
         }
+
         for (int i = 0; i < numberOfVertices; i++) {
             if (adjacencyMatrix[i][vertexPosition] != 0) {
                 adjacencyMatrix[i][vertexPosition] = 0;
@@ -96,6 +98,7 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
                 numberOfEdges -= 1;
             }
         }
+
         //Não se vai dar shift das linhas ANTES da linha a eliminar, apenas se movem as colunas para a esquerda
         for (int i = 0; i < vertexPosition; i++) {
             for (int f = vertexPosition; f < numberOfVertices - 1; f++) {
@@ -103,6 +106,7 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
             }
             adjacencyMatrix[i][numberOfVertices - 1] = 0;
         }
+
         for (int i = vertexPosition; i < numberOfVertices - 1; i++) {
             //Copiar conteúdos da linha seguinte para a linha atual, efetivamente removendo a linha do vértice a eliminar
             for (int f = 0; f < numberOfVertices; f++) {
@@ -114,13 +118,16 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
             }
             adjacencyMatrix[i][numberOfVertices - 1] = 0;
         }
+
         //Limpar última linha para o próximo elemento
         for (int i = 0; i < numberOfVertices; i++) {
             adjacencyMatrix[numberOfVertices - 1][i] = 0;
         }
+
         for (int i = vertexPosition; i < numberOfVertices - 1; i++) {
             vertices[i] = vertices[i + 1];
         }
+
         vertices[numberOfVertices - 1] = null;
         numberOfVertices -= 1;
         return true;
@@ -186,15 +193,18 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
     @Override
     public QueueADT<T> getBreadthFirstTraversal(T originVertex) {
         QueueADT<T> traversalOrder = new LinkedQueue<>();
+
         if (getPositionOfVertex(originVertex) == -1) {
             return traversalOrder;
         }
+
         QueueADT<T> vertexQueue = new LinkedQueue<>();
         UnorderedListADT<T> visitedVertices = new DoublyLinkedList<>();
         visitedVertices.addLast(originVertex);
         traversalOrder.enqueue(originVertex);
         vertexQueue.enqueue(originVertex);
         T frontVertex;
+
         while (!vertexQueue.isEmpty()) {
             frontVertex = vertexQueue.dequeue();
             for (T neighbour : getOutNeighbours(frontVertex)) {
@@ -211,9 +221,11 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
     @Override
     public QueueADT<T> getDepthFirstTraversal(T originVertex) {
         QueueADT<T> traversalOrder = new LinkedQueue<>();
+
         if (getPositionOfVertex(originVertex) == -1) {
             return traversalOrder;
         }
+
         //A pilha nunca irá ter mais elementos do que o número de vértices. Funcionaria também com DLL
         StackADT<T> vertexStack = new ArrayStack<>(numberOfVertices);
         UnorderedListADT<T> visitedVertices = new DoublyLinkedList<>();
@@ -222,9 +234,11 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
         vertexStack.push(originVertex);
         T topVertex;
         boolean allNeighboursVisited;
+
         while (!vertexStack.empty()) {
             topVertex = vertexStack.peek();
             allNeighboursVisited = true;
+
             for (T neighbour : getOutNeighbours(topVertex)) {
                 if (!visitedVertices.contains(neighbour)) {
                     allNeighboursVisited = false;
@@ -234,6 +248,7 @@ public class AdjacencyMatrixDirectedGraph<T> implements DirectedGraphADT<T> {
                     break;
                 }
             }
+
             if (allNeighboursVisited) {
                 vertexStack.pop();
             }
